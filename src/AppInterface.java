@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class AppInterface extends JFrame {
@@ -41,8 +42,35 @@ public class AppInterface extends JFrame {
         });
         randomQuestion30.addActionListener(e -> {
             Question randomQuestion = new Question();
-            randomQuestion.setRandomQuestionTitle(changeLabelText(randomQuestion.getRandomQuestionTitle(), "Rastgele 30 Soru"));
             randomQuestion.setVisible(true);
+            AtomicReference<Word> word = new AtomicReference<>();
+            AtomicInteger correctCounter = new AtomicInteger();
+            AtomicInteger wrongCounter = new AtomicInteger();
+            ResultSet resultSet = databaseOperations.getRandomWords(6);
+            try {
+                resultSet.next();
+                word.set(transactions.creatNewWord(resultSet));
+                randomQuestion.setRandomQuestionTitle(changeLabelText(randomQuestion.getRandomQuestionTitle(), "Rastgele 30 Soru"));
+                randomQuestion.setTurkishMean(changeLabelText(randomQuestion.getTurkishMean(), word.get().getTurkishMean()));
+                randomQuestion.getOkeyButton().addActionListener(o -> {
+                    if (randomQuestion.getInput().getText().equals(word.get().getEnglishMeanFirst())) {
+                        correctCounter.addAndGet(1);
+                        randomQuestion.setCorrectCounter(changeLabelText(randomQuestion.getCorrectCounter(), "Doğru: " + correctCounter));
+                    } else {
+                        wrongCounter.addAndGet(1);
+                        randomQuestion.setWrongCounter(changeLabelText(randomQuestion.getWrongCounter(), "Yanlış: " + wrongCounter));
+                    }
+                    try {
+                        resultSet.next();
+                    } catch (SQLException sqlException) {
+                        sqlException.printStackTrace();
+                    }
+                    word.set(transactions.creatNewWord(resultSet));
+                    randomQuestion.setTurkishMean(changeLabelText(randomQuestion.getTurkishMean(), word.get().getTurkishMean()));
+                });
+            } catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+            }
         });
         randomQuestion50.addActionListener(e -> {
             Question randomQuestion = new Question();

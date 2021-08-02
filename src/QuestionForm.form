@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Question">
+  <grid id="27dc6" binding="QuestionForm" layout-manager="GridLayoutManager" row-count="9" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="531" height="400"/>
+    </constraints>
+    <properties>
+      <background color="-13118508"/>
+      <enabled value="true"/>
+      <foreground color="-4488151"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="3c294" class="javax.swing.JLabel" binding="randomQuestionTitle">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <enabled value="true"/>
+          <font name="Segoe Script" size="25" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="Başlık"/>
+        </properties>
+      </component>
+      <vspacer id="12f19">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="7" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="494d2" class="javax.swing.JTextField" binding="input">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <dropMode value="INSERT"/>
+          <editable value="true"/>
+          <enabled value="true"/>
+          <foreground color="-16777216"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="f85be" class="javax.swing.JButton" binding="okeyButton">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13118508"/>
+          <enabled value="true"/>
+          <foreground color="-10348272"/>
+          <hideActionText value="true"/>
+          <text value="Tamam"/>
+        </properties>
+      </component>
+      <vspacer id="249fa">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="7" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="9c2b3" class="javax.swing.JLabel" binding="turkishMean">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Fira Code" size="20" style="1"/>
+          <foreground color="-4511973"/>
+          <text value="Türkçe Kelime"/>
+        </properties>
+      </component>
+      <hspacer id="f2ed5">
+        <constraints>
+          <grid row="6" column="8" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="c3952">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="8dba1" class="javax.swing.JLabel" binding="remainderCounter">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-4488151"/>
+          <enabled value="true"/>
+          <font name="Segoe Script" size="14" style="1"/>
+          <foreground color="-4488151"/>
+          <text value="Kalan : 1"/>
+        </properties>
+      </component>
+      <vspacer id="578a9">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="5" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="ff32" class="javax.swing.JLabel" binding="correctCounter">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-4488151"/>
+          <enabled value="true"/>
+          <font name="Segoe Script" size="14" style="1"/>
+          <foreground color="-1"/>
+          <text value="Doğru : 1"/>
+        </properties>
+      </component>
+      <component id="c53a6" class="javax.swing.JLabel" binding="wrongCounter">
+        <constraints>
+          <grid row="8" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-4488151"/>
+          <enabled value="true"/>
+          <font name="Segoe Script" size="14" style="1"/>
+          <foreground color="-7597817"/>
+          <text value="Yanlış : 1"/>
+        </properties>
+      </component>
+      <vspacer id="b7755">
+        <constraints>
+          <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+    </children>
+  </grid>
+</form>

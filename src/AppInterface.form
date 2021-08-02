@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="AppInterface">
+  <grid id="27dc6" binding="homePage" layout-manager="GridLayoutManager" row-count="5" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="770" height="400"/>
+    </constraints>
+    <properties>
+      <background color="-13118508"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="67871" class="javax.swing.JButton" binding="randomWrong">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-4488151"/>
+          <text value="Rastgele Yanlış"/>
+        </properties>
+      </component>
+      <component id="84383" class="javax.swing.JButton" binding="lastLearned10">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13948117"/>
+          <text value="Öğrenilen Son 10"/>
+        </properties>
+      </component>
+      <component id="dfa6b" class="javax.swing.JButton" binding="randomQuestion">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13172538"/>
+          <text value="Rastgele Soru"/>
+        </properties>
+      </component>
+      <component id="7c9f6" class="javax.swing.JButton" binding="randomQuestion30">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13172538"/>
+          <text value="Rastgele 30 Soru"/>
+        </properties>
+      </component>
+      <component id="d381f" class="javax.swing.JButton" binding="lastWrong30">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <text value="Son 30 Yanlış"/>
+        </properties>
+      </component>
+      <component id="80413" class="javax.swing.JButton" binding="randomWrong30">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-4488151"/>
+          <text value="Rastgele 30 Yanlış"/>
+        </properties>
+      </component>
+      <component id="917a8" class="javax.swing.JButton" binding="lastLearned20">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13948117"/>
+          <text value="Öğrenilen Son 20"/>
+        </properties>
+      </component>
+      <component id="2bfc6" class="javax.swing.JButton" binding="randomQuestion50">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13172538"/>
+          <text value="Rastgele 50 Soru"/>
+        </properties>
+      </component>
+      <component id="c7aff" class="javax.swing.JButton" binding="lastWrong50">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <text value="Son 50 Yanlış"/>
+        </properties>
+      </component>
+      <component id="e3be7" class="javax.swing.JButton" binding="randomWrong50">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-4488151"/>
+          <text value="Rastgele 50 Yanlış"/>
+        </properties>
+      </component>
+      <component id="9dc09" class="javax.swing.JButton" binding="lastLearned40">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13948117"/>
+          <text value="Öğrenilen Son 40"/>
+        </properties>
+      </component>
+      <component id="7790" class="javax.swing.JButton" binding="randomQuestion100">
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13172538"/>
+          <text value="Rastgele 100 Soru"/>
+        </properties>
+      </component>
+      <component id="3ae63" class="javax.swing.JButton" binding="addWord">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10348272"/>
+          <text value="Kelime Ekle"/>
+        </properties>
+      </component>
+      <component id="63e5b" class="javax.swing.JButton" binding="deleteWord">
+        <constraints>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10348272"/>
+          <text value="Kelime Sil"/>
+        </properties>
+      </component>
+      <component id="c4c0e" class="javax.swing.JButton" binding="lastWrong10">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+          <text value="Son 10 Yanlış"/>
+        </properties>
+      </component>
+      <hspacer id="5aed4">
+        <constraints>
+          <grid row="1" column="0" row-span="4" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="16059">
+        <constraints>
+          <grid row="1" column="5" row-span="4" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="e3dc6" class="javax.swing.JLabel" binding="upTitle">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Comic Sans MS" size="28" style="0"/>
+          <foreground color="-4488151"/>
+          <text value="İngilizce Kelime Testi"/>
+          <verticalAlignment value="0"/>
+          <verticalTextPosition value="0"/>
+        </properties>
+      </component>
+      <component id="cda47" class="javax.swing.JButton" binding="resetWrongs">
+        <constraints>
+          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10348272"/>
+          <enabled value="true"/>
+          <hideActionText value="false"/>
+          <text value="Yanlışları Sıfırla"/>
+          <verticalAlignment value="0"/>
+          <verticalTextPosition value="0"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

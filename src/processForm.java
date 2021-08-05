@@ -13,6 +13,7 @@ public class processForm extends JFrame {
     private JTextField inputFour;
     private JButton okeyButton;
     private JLabel processTitle;
+    private Transactions transactions = new Transactions();
 
     public JTextField getInputOne() {
         return inputOne;
@@ -102,8 +103,8 @@ public class processForm extends JFrame {
         okeyButton.addActionListener(e -> {
            if (getProcessTitle().getText().equals("Kelime Silme")) {
                deleteWord deleteWord = new deleteWord();
-               deleteWord.setProcessTitle(AppInterface.changeLabelText(deleteWord.getProcessTitle(), "Silinecek Kelimeler"));
-               deleteWord.setExplanation(AppInterface.changeLabelText(deleteWord.getExplanation(), "Silinecek kelimeleri seçiniz."));
+               deleteWord.setProcessTitle(transactions.changeLabelText(deleteWord.getProcessTitle(), "Silinecek Kelimeler"));
+               deleteWord.setExplanation(transactions.changeLabelText(deleteWord.getExplanation(), "Silinecek kelimeleri seçiniz."));
                deleteWord.setVisible(true);
            }
         });

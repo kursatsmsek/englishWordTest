@@ -70,7 +70,7 @@ public class Question extends JFrame {
 
     public Question() {
         add(QuestionForm);
-        setBounds(530,200,300,400);
+        setBounds(530,200,350,400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Rastgele Soru");
         okeyButton.addActionListener(e -> {

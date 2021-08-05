@@ -6,8 +6,10 @@ public class DatabaseOperations {
     private static final String GET_ALL_WORD_COUNT = "SELECT COUNT(id) AS count FROM wordlist";
     private static final String GET_WORD = "SELECT COUNT(turkishMean) AS count FROM wronglist WHERE wronglist.turkishMean LIKE ?";
     private static final String GET_RANDOM_WORDS = "SELECT * FROM wordlist ORDER BY RANDOM() LIMIT ?";
-    private static final String GET_LEARNED_WORDS = "SELECT * FROM wordlist ORDER BY id LIMIT ?";
+    private static final String GET_LEARNED_WORDS = "SELECT * FROM wordlist ORDER BY id DESC LIMIT ?";
     private static final String ADD_WRONG_LIST = "INSERT INTO wronglist (turkishMean, englishMeanFirst, englishMeanSecond, englishMeanThird) VALUES (?,?,?,?)";
+    private static final String GET_WRONG_WORDS = "SELECT * FROM wronglist ORDER BY id DESC LIMIT ?";
+    private static final String GET_RANDOM_WRONG_WORDS = "SELECT * FROM wronglist ORDER BY RANDOM() LIMIT ?";
 
     String databaseUrl = "jdbc:sqlite:C:/Users/Kürşat/Desktop/English Word Test/wordlist.db";
     Transactions transactions;
@@ -37,6 +39,32 @@ public class DatabaseOperations {
             return resultSet;
         } catch (SQLException sqlException) {
             Log.error("Learned words could not be created " + sqlException.getMessage());
+            return emptyResultSet;
+        }
+    }
+
+    public ResultSet getWrongWords(Integer number) {
+        connectDatabase();
+        try {
+            preparedStatement = connection.prepareStatement(GET_WRONG_WORDS);
+            preparedStatement.setInt(1, number);
+            resultSet = preparedStatement.executeQuery();
+            return resultSet;
+        } catch (SQLException sqlException) {
+            Log.error("wrong words could not be fetched " + sqlException.getMessage());
+            return emptyResultSet;
+        }
+    }
+
+    public ResultSet getRandomWrongWords(Integer number) {
+        connectDatabase();
+        try {
+            preparedStatement = connection.prepareStatement(GET_RANDOM_WRONG_WORDS);
+            preparedStatement.setInt(1, number);
+            resultSet = preparedStatement.executeQuery();
+            return resultSet;
+        } catch (SQLException sqlException) {
+            Log.error("random wrong words could not be fetched " + sqlException.getMessage());
             return emptyResultSet;
         }
     }

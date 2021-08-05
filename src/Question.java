@@ -73,11 +73,5 @@ public class Question extends JFrame {
         setBounds(530,200,350,400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Rastgele Soru");
-        okeyButton.addActionListener(e -> {
-            if (getOkeyButton().getText().equals("Kontrol Et")) {
-                infoForm infoForm = new infoForm();
-                infoForm.setVisible(true);
-            }
-        });
     }
 }

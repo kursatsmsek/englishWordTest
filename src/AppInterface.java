@@ -29,74 +29,56 @@ public class AppInterface extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("İngilizce Kelime Testi");
         randomQuestion.addActionListener(e -> {
-            Question randomQuestion = new Question();
-            randomQuestion.setRandomQuestionTitle(transactions.changeLabelText(randomQuestion.getRandomQuestionTitle(), "Rastgele Soru"));
-            randomQuestion.setRemainderCounter(transactions.changeLabelText(randomQuestion.getRemainderCounter(), ""));
-            randomQuestion.setCorrectCounter(transactions.changeLabelText(randomQuestion.getCorrectCounter(), ""));
-            randomQuestion.setWrongCounter(transactions.changeLabelText(randomQuestion.getWrongCounter(), ""));
-            randomQuestion.setOkeyButton(transactions.changeButtonText(randomQuestion.getOkeyButton(), "Kontrol Et"));
-            randomQuestion.setVisible(true);
+            AtomicInteger number = new AtomicInteger(1);
+            transactions.askQuestion("randomQuestion", number);
         });
         randomQuestion30.addActionListener(e -> {
             AtomicInteger number = new AtomicInteger(3);
-            transactions.randomQuestion(number);
+            transactions.askQuestion("randomQuestion", number);
         });
         randomQuestion50.addActionListener(e -> {
             AtomicInteger number = new AtomicInteger(5);
-            transactions.randomQuestion(number);
+            transactions.askQuestion("randomQuestion", number);
         });
         randomQuestion100.addActionListener(e -> {
             AtomicInteger number = new AtomicInteger(10);
-            transactions.randomQuestion(number);
+            transactions.askQuestion("randomQuestion", number);
         });
         lastWrong10.addActionListener(e -> {
-            Question randomQuestion = new Question();
-            randomQuestion.setRandomQuestionTitle(transactions.changeLabelText(randomQuestion.getRandomQuestionTitle(), "Son 10 Yanlış"));
-            randomQuestion.setVisible(true);
+            AtomicInteger number = new AtomicInteger(1);
+            transactions.askQuestion("lastWrong", number);
         });
         lastWrong30.addActionListener(e -> {
-            Question randomQuestion = new Question();
-            randomQuestion.setRandomQuestionTitle(transactions.changeLabelText(randomQuestion.getRandomQuestionTitle(), "Son 30 Yanlış"));
-            randomQuestion.setVisible(true);
+            AtomicInteger number = new AtomicInteger(3);
+            transactions.askQuestion("lastWrong", number);
         });
         lastWrong50.addActionListener(e -> {
-            Question randomQuestion = new Question();
-            randomQuestion.setRandomQuestionTitle(transactions.changeLabelText(randomQuestion.getRandomQuestionTitle(), "Son 50 Yanlış"));
-            randomQuestion.setVisible(true);
+            AtomicInteger number = new AtomicInteger(5);
+            transactions.askQuestion("lastWrong", number);
         });
         randomWrong.addActionListener(e -> {
-            Question randomQuestion = new Question();
-            randomQuestion.setRandomQuestionTitle(transactions.changeLabelText(randomQuestion.getRandomQuestionTitle(), "Rastgele Yanlış"));
-            randomQuestion.setRemainderCounter(transactions.changeLabelText(randomQuestion.getRemainderCounter(), ""));
-            randomQuestion.setCorrectCounter(transactions.changeLabelText(randomQuestion.getCorrectCounter(), ""));
-            randomQuestion.setWrongCounter(transactions.changeLabelText(randomQuestion.getWrongCounter(), ""));
-            randomQuestion.setOkeyButton(transactions.changeButtonText(randomQuestion.getOkeyButton(), "Kontrol Et"));
-            randomQuestion.setVisible(true);
+            AtomicInteger number = new AtomicInteger(1);
+            transactions.askQuestion("randomWrong", number);
         });
         randomWrong30.addActionListener(e -> {
-            Question randomQuestion = new Question();
-            randomQuestion.setRandomQuestionTitle(transactions.changeLabelText(randomQuestion.getRandomQuestionTitle(), "Rastgele 30 Yanlış"));
-            randomQuestion.setVisible(true);
+            AtomicInteger number = new AtomicInteger(3);
+            transactions.askQuestion("randomWrong", number);
         });
         randomWrong50.addActionListener(e -> {
-            Question randomQuestion = new Question();
-            randomQuestion.setRandomQuestionTitle(transactions.changeLabelText(randomQuestion.getRandomQuestionTitle(), "Rastgele 50 Yanlış"));
-            randomQuestion.setVisible(true);
+            AtomicInteger number = new AtomicInteger(5);
+            transactions.askQuestion("randomWrong", number);
         });
         lastLearned10.addActionListener(e -> {
-            Question randomQuestion = new Question();
-            randomQuestion.setRandomQuestionTitle(transactions.changeLabelText(randomQuestion.getRandomQuestionTitle(), "Öğrenilen Son 10"));
-            randomQuestion.setVisible(true);
+            AtomicInteger number = new AtomicInteger(1);
+            transactions.askQuestion("lastLearned", number);
         });
         lastLearned20.addActionListener(e -> {
-            Question randomQuestion = new Question();
-            randomQuestion.setRandomQuestionTitle(transactions.changeLabelText(randomQuestion.getRandomQuestionTitle(), "Öğrenilen Son 20"));
-            randomQuestion.setVisible(true);
+            AtomicInteger number = new AtomicInteger(2);
+            transactions.askQuestion("lastLearned", number);
         });
         lastLearned40.addActionListener(e -> {
-            Question randomQuestion = new Question();
-            randomQuestion.setRandomQuestionTitle(transactions.changeLabelText(randomQuestion.getRandomQuestionTitle(), "Öğrenilen Son 40"));
-            randomQuestion.setVisible(true);
+            AtomicInteger number = new AtomicInteger(4);
+            transactions.askQuestion("lastLearned", number);
         });
         addWord.addActionListener(e -> {
             processForm processForm = new processForm();

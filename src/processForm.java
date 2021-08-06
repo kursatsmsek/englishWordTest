@@ -12,7 +12,26 @@ public class processForm extends JFrame {
     private JTextField inputThree;
     private JTextField inputFour;
     private JButton okeyButton;
+
+    public JButton getOkeyButton() {
+        return okeyButton;
+    }
+
+    public void setOkeyButton(JButton okeyButton) {
+        this.okeyButton = okeyButton;
+    }
+
     private JLabel processTitle;
+    private JLabel informationText;
+
+    public JLabel getInformationText() {
+        return informationText;
+    }
+
+    public void setInformationText(JLabel informationText) {
+        this.informationText = informationText;
+    }
+
     private Transactions transactions = new Transactions();
 
     public JTextField getInputOne() {
@@ -100,13 +119,5 @@ public class processForm extends JFrame {
         setBounds(460,200,500,400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("İşlem Menüsü");
-        okeyButton.addActionListener(e -> {
-           if (getProcessTitle().getText().equals("Kelime Silme")) {
-               deleteWord deleteWord = new deleteWord();
-               deleteWord.setProcessTitle(transactions.changeLabelText(deleteWord.getProcessTitle(), "Silinecek Kelimeler"));
-               deleteWord.setExplanation(transactions.changeLabelText(deleteWord.getExplanation(), "Silinecek kelimeleri seçiniz."));
-               deleteWord.setVisible(true);
-           }
-        });
     }
 }

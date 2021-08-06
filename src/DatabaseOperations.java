@@ -4,12 +4,17 @@ import java.util.concurrent.atomic.AtomicReference;
 public class DatabaseOperations {
 
     private static final String GET_ALL_WORD_COUNT = "SELECT COUNT(id) AS count FROM wordlist";
-    private static final String GET_WORD = "SELECT COUNT(turkishMean) AS count FROM wronglist WHERE wronglist.turkishMean LIKE ?";
+    private static final String GET_WORD = "SELECT COUNT(turkishMean) AS count FROM wronglist WHERE turkishMean LIKE ?";
     private static final String GET_RANDOM_WORDS = "SELECT * FROM wordlist ORDER BY RANDOM() LIMIT ?";
     private static final String GET_LEARNED_WORDS = "SELECT * FROM wordlist ORDER BY id DESC LIMIT ?";
     private static final String ADD_WRONG_LIST = "INSERT INTO wronglist (turkishMean, englishMeanFirst, englishMeanSecond, englishMeanThird) VALUES (?,?,?,?)";
     private static final String GET_WRONG_WORDS = "SELECT * FROM wronglist ORDER BY id DESC LIMIT ?";
     private static final String GET_RANDOM_WRONG_WORDS = "SELECT * FROM wronglist ORDER BY RANDOM() LIMIT ?";
+    private static final String ADD_WORD = "INSERT INTO wordlist (turkishMean, englishMeanFirst, englishMeanSecond, englishMeanThird) VALUES (?,?,?,?)";
+    private static final String DELETE_WRONG_WORDS = "DELETE FROM wronglist";
+    private static final String RESET_ID = "UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME='wronglist'";
+    private static final String DELETE_WORD = "DELETE FROM wordlist WHERE turkishMean = ?";
+    private static final String FIND_WORD = "SELECT COUNT(turkishMean) AS count FROM wordlist WHERE turkishMean LIKE ?";
 
     String databaseUrl = "jdbc:sqlite:C:/Users/Kürşat/Desktop/English Word Test/wordlist.db";
     Transactions transactions;
@@ -31,7 +36,6 @@ public class DatabaseOperations {
     }
 
     public ResultSet getLearnedWords(Integer number) {
-        connectDatabase();
         try {
             preparedStatement = connection.prepareStatement(GET_LEARNED_WORDS);
             preparedStatement.setInt(1, number);
@@ -44,7 +48,6 @@ public class DatabaseOperations {
     }
 
     public ResultSet getWrongWords(Integer number) {
-        connectDatabase();
         try {
             preparedStatement = connection.prepareStatement(GET_WRONG_WORDS);
             preparedStatement.setInt(1, number);
@@ -57,7 +60,6 @@ public class DatabaseOperations {
     }
 
     public ResultSet getRandomWrongWords(Integer number) {
-        connectDatabase();
         try {
             preparedStatement = connection.prepareStatement(GET_RANDOM_WRONG_WORDS);
             preparedStatement.setInt(1, number);
@@ -69,25 +71,41 @@ public class DatabaseOperations {
         }
     }
 
-    public void addToWrongList(AtomicReference<Word> word) {
+    public boolean addWord(AtomicReference<Word> word, String target) {
         try {
-            if (!(getWord(word))) {
-                preparedStatement = connection.prepareStatement(ADD_WRONG_LIST);
+            if (!(getWord(word.get().getTurkishMean(), false))) {
+                preparedStatement = connection.prepareStatement(target.equals("wordlist") ? ADD_WORD : ADD_WRONG_LIST);
                 preparedStatement.setString(1, word.get().getTurkishMean());
                 preparedStatement.setString(2, word.get().getEnglishMeanFirst());
                 preparedStatement.setString(3, word.get().getEnglishMeanSecond() != null ? word.get().getEnglishMeanSecond() : null);
                 preparedStatement.setString(4, word.get().getEnglishMeanThird() != null ? word.get().getEnglishMeanThird() : null);
                 preparedStatement.executeUpdate();
             }
+            return true;
         } catch (SQLException sqlException) {
-            Log.error("Word: " + word.get().getTurkishMean() + "could not be add to wrong list" + sqlException.getMessage());
+            Log.error("Word: " + word.get().getTurkishMean() + "could not be add to " + target + sqlException.getMessage());
+            return false;
         }
     }
 
-    public boolean getWord(AtomicReference<Word> word) {
+    public boolean resetWrongList() {
+        connectDatabase();
         try {
-            preparedStatement = connection.prepareStatement(GET_WORD);
-            preparedStatement.setString(1, word.get().getTurkishMean());
+            preparedStatement = connection.prepareStatement(DELETE_WRONG_WORDS);
+            preparedStatement.executeUpdate();
+            preparedStatement = connection.prepareStatement(RESET_ID);
+            preparedStatement.executeUpdate();
+            return true;
+        } catch (SQLException sqlException) {
+            Log.error("Wrong list table could not be reset " + sqlException.getMessage());
+            return false;
+        }
+    }
+
+    public boolean getWord(String turkishMean, boolean transaction) {
+        try {
+            preparedStatement = connection.prepareStatement(transaction ? FIND_WORD : GET_WORD);
+            preparedStatement.setString(1, turkishMean);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.getInt(1) > 0) {
                 return true;
@@ -95,8 +113,20 @@ public class DatabaseOperations {
                 return false;
             }
         } catch (SQLException sqlException) {
-            Log.error("Word: " + word.get().getTurkishMean() + "could not be add to wrong list" + sqlException.getMessage());
+            Log.error("Word: " + turkishMean + " could not be find" + sqlException.getMessage());
+            return false;
+        }
+    }
+
+    public boolean removeWord(String turkishMean) {
+        try {
+            preparedStatement = connection.prepareStatement(DELETE_WORD);
+            preparedStatement.setString(1, turkishMean);
+            preparedStatement.executeUpdate();
             return true;
+        } catch (SQLException sqlException) {
+            Log.error("Word: " + turkishMean + " couldn not be delete" + sqlException.getMessage());
+            return false;
         }
     }
 

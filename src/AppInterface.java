@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AppInterface extends JFrame {
-    private DatabaseOperations databaseOperations = new DatabaseOperations();
     private Transactions transactions = new Transactions();
     private JButton randomWrong;
     private JButton lastLearned10;
@@ -28,6 +27,7 @@ public class AppInterface extends JFrame {
         setBounds(330,200,700,400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("İngilizce Kelime Testi");
+
         randomQuestion.addActionListener(e -> {
             AtomicInteger number = new AtomicInteger(1);
             transactions.askQuestion("randomQuestion", number);
@@ -81,41 +81,13 @@ public class AppInterface extends JFrame {
             transactions.askQuestion("lastLearned", number);
         });
         addWord.addActionListener(e -> {
-            processForm processForm = new processForm();
-            processForm.setProcessTitle(transactions.changeLabelText(processForm.getProcessTitle(), "Kelime Ekleme"));
-            processForm.setExplanation(transactions.changeLabelText(processForm.getExplanation(), "Lütfen kelimenin Türkçe anlamını ve diğer anlamlarını giriniz."));
-            processForm.setStatementOne(transactions.changeLabelText(processForm.getStatementOne(), "Türkçe Anlamı"));
-            processForm.setStatementTwo(transactions.changeLabelText(processForm.getStatementTwo(), "İngilizce 1. Anlamı"));
-            processForm.setStatementThree(transactions.changeLabelText(processForm.getStatementThree(), "İngilizce 2. Anlamı"));
-            processForm.setStatementFour(transactions.changeLabelText(processForm.getStatementFour(), "İngilizce 3. Anlamı"));
-            processForm.setVisible(true);
+            transactions.addWordToList();
         });
         resetWrongs.addActionListener(e -> {
-            processForm processForm = new processForm();
-            processForm.setProcessTitle(transactions.changeLabelText(processForm.getProcessTitle(), "Yanlışları Sıfırla"));
-            processForm.setExplanation(transactions.changeLabelText(processForm.getExplanation(), "Yanlış bilinen kelimeler tablosu sıfırlanacaktır."));
-            processForm.setStatementOne(transactions.changeLabelText(processForm.getStatementOne(), "\"reset\"  >"));
-            processForm.getStatementTwo().setVisible(false);
-            processForm.getStatementThree().setVisible(false);
-            processForm.getStatementFour().setVisible(false);
-            processForm.getInputTwo().setVisible(false);
-            processForm.getInputThree().setVisible(false);
-            processForm.getInputFour().setVisible(false);
-            processForm.setVisible(true);
+            transactions.resetTable();
         });
         deleteWord.addActionListener(e -> {
-            processForm processForm = new processForm();
-            processForm.setProcessTitle(transactions.changeLabelText(processForm.getProcessTitle(), "Kelime Silme"));
-            processForm.setExplanation(transactions.changeLabelText(processForm.getExplanation(), "Silinecek kelimeyi aratın, sonuçlardan seçerek silin."));
-            processForm.setStatementOne(transactions.changeLabelText(processForm.getStatementOne(), "Silinecek Kelime"));
-            processForm.getStatementTwo().setVisible(false);
-            processForm.getStatementThree().setVisible(false);
-            processForm.getStatementFour().setVisible(false);
-            processForm.getInputTwo().setVisible(false);
-            processForm.getInputThree().setVisible(false);
-            processForm.getInputFour().setVisible(false);
-            processForm.setVisible(true);
+            transactions.deleteWord();
         });
     }
-
 }

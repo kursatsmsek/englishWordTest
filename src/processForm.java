@@ -1,6 +1,7 @@
 import javax.swing.*;
 
 public class processForm extends JFrame {
+    DatabaseOperations databaseOperations = new DatabaseOperations();
     private JPanel processForm;
     private JTextField inputOne;
     private JLabel explanation;

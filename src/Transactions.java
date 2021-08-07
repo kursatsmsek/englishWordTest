@@ -130,7 +130,7 @@ public class Transactions {
         AtomicReference<Word> word = new AtomicReference<>();
         processForm processForm = new processForm();
         processForm.setVisible(true);
-
+        
         processForm.setProcessTitle(changeLabelText(processForm.getProcessTitle(), "Kelime Ekleme"));
         processForm.setExplanation(changeLabelText(processForm.getExplanation(), "Lütfen kelimenin Türkçe anlamını ve diğer anlamlarını giriniz."));
         processForm.setStatementOne(changeLabelText(processForm.getStatementOne(), "Türkçe Anlamı"));
@@ -139,6 +139,7 @@ public class Transactions {
         processForm.setStatementFour(changeLabelText(processForm.getStatementFour(), "İngilizce 3. Anlamı"));
 
         processForm.getOkeyButton().addActionListener(a -> {
+            databaseOperations.connectDatabase();
             if (!(processForm.getInputOne().getText().equals("")) && processForm.getInputTwo().getText().equals(""))
                 processForm.setInformationText(changeLabelText(processForm.getInformationText(), "İngilizce 1. anlamı giriniz."));
             else if (processForm.getInputOne().getText().equals("")) {
@@ -151,6 +152,7 @@ public class Transactions {
                 } else
                     processForm.setInformationText(changeLabelText(processForm.getInformationText(), "Bir hata oluştu, log dosyasını kontrol ediniz."));
             }
+            databaseOperations.closeDatabase(databaseOperations.connection);
         });
     }
 
@@ -168,12 +170,14 @@ public class Transactions {
         processForm.getInputFour().setVisible(false);
 
         processForm.getOkeyButton().addActionListener(e -> {
+            databaseOperations.connectDatabase();
             if (processForm.getInputOne().getText().equals("reset")) {
                 databaseOperations.resetWrongList();
                 processForm.setInformationText(changeLabelText(processForm.getInformationText(), "Yanlışlar başarıyla sıfırlandı."));
             } else {
                 processForm.setInformationText(changeLabelText(processForm.getInformationText(), "Bir hata oluştu, log dosyasını kontrol ediniz."));
             }
+            databaseOperations.closeDatabase(databaseOperations.connection);
         });
     }
 
@@ -191,8 +195,9 @@ public class Transactions {
         processForm.getInputFour().setVisible(false);
 
         processForm.getOkeyButton().addActionListener(d -> {
+            databaseOperations.connectDatabase();
             String turkishMean = processForm.getInputOne().getText();
-            if (databaseOperations.getWord(turkishMean, true)) {
+            if (databaseOperations.findWord(turkishMean)) {
                 if (databaseOperations.removeWord(turkishMean)) {
                     processForm.setInformationText(changeLabelText(processForm.getInformationText(), turkishMean + " başarıyla silindi."));
                 } else {
@@ -201,6 +206,7 @@ public class Transactions {
             } else {
                 processForm.setInformationText(changeLabelText(processForm.getInformationText(), "Kelime: " + turkishMean + " bulunamadı."));
             }
+            databaseOperations.closeDatabase(databaseOperations.connection);
         });
     }
 

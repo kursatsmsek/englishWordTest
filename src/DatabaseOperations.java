@@ -73,7 +73,7 @@ public class DatabaseOperations {
 
     public boolean addWord(AtomicReference<Word> word, String target) {
         try {
-            if (!(getWord(word.get().getTurkishMean(), false))) {
+            if (!(getWord(word.get().getTurkishMean()))) {
                 preparedStatement = connection.prepareStatement(target.equals("wordlist") ? ADD_WORD : ADD_WRONG_LIST);
                 preparedStatement.setString(1, word.get().getTurkishMean());
                 preparedStatement.setString(2, word.get().getEnglishMeanFirst());
@@ -102,9 +102,11 @@ public class DatabaseOperations {
         }
     }
 
-    public boolean getWord(String turkishMean, boolean transaction) {
+    public boolean getWord(String turkishMean) {
         try {
-            preparedStatement = connection.prepareStatement(transaction ? FIND_WORD : GET_WORD);
+            if (connection.isClosed())
+                connectDatabase();
+            preparedStatement = connection.prepareStatement(GET_WORD);
             preparedStatement.setString(1, turkishMean);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.getInt(1) > 0) {
@@ -118,7 +120,27 @@ public class DatabaseOperations {
         }
     }
 
+    public boolean findWord(String turkishMean) {
+        connectDatabase();
+        try {
+            preparedStatement = connection.prepareStatement(FIND_WORD);
+            preparedStatement.setString(1, turkishMean);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.getInt(1) > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException sqlException) {
+            Log.error("Word: " + turkishMean + " could not be find" + sqlException.getMessage());
+            return false;
+        } finally {
+            closeDatabase(connection);
+        }
+    }
+
     public boolean removeWord(String turkishMean) {
+        connectDatabase();
         try {
             preparedStatement = connection.prepareStatement(DELETE_WORD);
             preparedStatement.setString(1, turkishMean);
@@ -127,6 +149,8 @@ public class DatabaseOperations {
         } catch (SQLException sqlException) {
             Log.error("Word: " + turkishMean + " couldn not be delete" + sqlException.getMessage());
             return false;
+        } finally {
+            closeDatabase(connection);
         }
     }
 
@@ -140,7 +164,8 @@ public class DatabaseOperations {
 
     public void closeDatabase(Connection connection) {
         try {
-            connection.close();
+            if (!(connection.isClosed()))
+                connection.close();
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }

@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AppInterface extends JFrame {
+    private DatabaseOperations databaseOperations = new DatabaseOperations();
     private Transactions transactions = new Transactions();
     private JButton randomWrong;
     private JButton lastLearned10;

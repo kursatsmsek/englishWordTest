@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Log {
-    private static File logFile;
+    private static File logFile = new File("./log.txt");
     private static FileWriter fileWriter;
     private static BufferedWriter bufferedWriter;
     private static final LocalDateTime date = LocalDateTime.now();
@@ -11,37 +11,37 @@ public class Log {
 
     public static boolean error(String errorMessage) {
         try {
-            logFile = new File("log.txt");
-            fileWriter = new FileWriter(logFile, false);
+            fileWriter = new FileWriter(logFile, true);
             bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write("[ERROR] [" + dateFormat.format(date) + "] " + errorMessage);
-            return true;
+            bufferedWriter.write("[ERROR] [" + dateFormat.format(date) + "] " + errorMessage + "\n");
+            bufferedWriter.close();
         } catch (IOException e) {
-            return false;
+            e.printStackTrace();
         }
+        return true;
     }
 
     public static boolean warning(String warningMessage) {
         try {
-            logFile = new File("log.txt");
-            fileWriter = new FileWriter(logFile, false);
+            fileWriter = new FileWriter(logFile, true);
             bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write("[WARNING] [" + dateFormat.format(date) + "] " + warningMessage);
-            return true;
+            bufferedWriter.write("[WARNING] [" + dateFormat.format(date) + "] " + warningMessage + "\n");
+            bufferedWriter.close();
         } catch (IOException e) {
-            return false;
+            e.printStackTrace();
         }
+        return true;
     }
 
     public static boolean info(String infoMessage) {
         try {
-            logFile = new File("log.txt");
-            fileWriter = new FileWriter(logFile, false);
+            fileWriter = new FileWriter(logFile, true);
             bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write("[INFO] [" + dateFormat.format(date) + "] " + infoMessage);
-            return true;
+            bufferedWriter.write("[INFO] [" + dateFormat.format(date) + "] " + infoMessage + "\n");
+            bufferedWriter.close();
         } catch (IOException e) {
-            return false;
+            e.printStackTrace();
         }
+        return true;
     }
 }

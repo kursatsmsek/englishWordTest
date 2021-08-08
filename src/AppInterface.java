@@ -34,27 +34,27 @@ public class AppInterface extends JFrame {
             transactions.askQuestion("randomQuestion", number);
         });
         randomQuestion30.addActionListener(e -> {
-            AtomicInteger number = new AtomicInteger(3);
+            AtomicInteger number = new AtomicInteger(30);
             transactions.askQuestion("randomQuestion", number);
         });
         randomQuestion50.addActionListener(e -> {
-            AtomicInteger number = new AtomicInteger(5);
+            AtomicInteger number = new AtomicInteger(50);
             transactions.askQuestion("randomQuestion", number);
         });
         randomQuestion100.addActionListener(e -> {
-            AtomicInteger number = new AtomicInteger(10);
+            AtomicInteger number = new AtomicInteger(100);
             transactions.askQuestion("randomQuestion", number);
         });
         lastWrong10.addActionListener(e -> {
-            AtomicInteger number = new AtomicInteger(1);
+            AtomicInteger number = new AtomicInteger(10);
             transactions.askQuestion("lastWrong", number);
         });
         lastWrong30.addActionListener(e -> {
-            AtomicInteger number = new AtomicInteger(3);
+            AtomicInteger number = new AtomicInteger(30);
             transactions.askQuestion("lastWrong", number);
         });
         lastWrong50.addActionListener(e -> {
-            AtomicInteger number = new AtomicInteger(5);
+            AtomicInteger number = new AtomicInteger(50);
             transactions.askQuestion("lastWrong", number);
         });
         randomWrong.addActionListener(e -> {
@@ -62,23 +62,23 @@ public class AppInterface extends JFrame {
             transactions.askQuestion("randomWrong", number);
         });
         randomWrong30.addActionListener(e -> {
-            AtomicInteger number = new AtomicInteger(3);
+            AtomicInteger number = new AtomicInteger(30);
             transactions.askQuestion("randomWrong", number);
         });
         randomWrong50.addActionListener(e -> {
-            AtomicInteger number = new AtomicInteger(5);
+            AtomicInteger number = new AtomicInteger(50);
             transactions.askQuestion("randomWrong", number);
         });
         lastLearned10.addActionListener(e -> {
-            AtomicInteger number = new AtomicInteger(1);
+            AtomicInteger number = new AtomicInteger(10);
             transactions.askQuestion("lastLearned", number);
         });
         lastLearned20.addActionListener(e -> {
-            AtomicInteger number = new AtomicInteger(2);
+            AtomicInteger number = new AtomicInteger(20);
             transactions.askQuestion("lastLearned", number);
         });
         lastLearned40.addActionListener(e -> {
-            AtomicInteger number = new AtomicInteger(4);
+            AtomicInteger number = new AtomicInteger(40);
             transactions.askQuestion("lastLearned", number);
         });
         addWord.addActionListener(e -> {

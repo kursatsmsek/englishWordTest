@@ -46,7 +46,12 @@ public class Transactions {
         ResultSet resultSet;
         ResultSet finalResultSet;
 
-        databaseOperations.connectDatabase();
+        try {
+            if (databaseOperations.connection.isClosed())
+                databaseOperations.connectDatabase();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
 
         randomQuestion.setRemainderCounter(changeLabelText(randomQuestion.getRemainderCounter(), "Kalan: " + number.get()));
 

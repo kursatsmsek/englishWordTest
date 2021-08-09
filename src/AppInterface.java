@@ -31,6 +31,8 @@ public class AppInterface extends JFrame {
         setTitle("English Word Test");
         setIconImage(imageIcon.getImage());
 
+        databaseOperations.connectDatabase();
+
         randomQuestion.addActionListener(e -> {
             AtomicInteger number = new AtomicInteger(1);
             transactions.askQuestion("randomQuestion", number);

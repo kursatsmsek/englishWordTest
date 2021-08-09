@@ -17,6 +17,15 @@ public class DatabaseOperations {
 
     String databaseUrl = "jdbc:sqlite:./wordlist.db";
     Connection connection;
+
+    {
+        try {
+            connection = DriverManager.getConnection(databaseUrl);
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+    }
+
     PreparedStatement preparedStatement;
     ResultSet resultSet;
     ResultSet emptyResultSet;
@@ -147,21 +156,17 @@ public class DatabaseOperations {
     }
 
     public void connectDatabase() {
-        System.out.println("connecting...");
         try {
             connection = DriverManager.getConnection(databaseUrl);
-            System.out.println("connected\n-------------------------");
         } catch (SQLException sqlException) {
             Log.error("Can not connect to database --> " + sqlException.getMessage());
         }
     }
 
     public void closeDatabase(Connection connection) {
-        System.out.println("closing...");
         try {
             if (!(connection.isClosed()))
                 connection.close();
-            System.out.println("closed\n---------------------");
         } catch (SQLException sqlException) {
             Log.error("Can not disconnect to database --> " + sqlException.getMessage());
         }

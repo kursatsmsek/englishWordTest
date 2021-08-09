@@ -224,3 +224,71 @@
 [INFO] [09/08/2021 19:10:17] Word: yorumlamak successfully added to wronglist
 [INFO] [09/08/2021 19:10:17] Word: ab successfully added to wordlist
 [INFO] [09/08/2021 19:10:17] Word: ab successfully removed.
+[WARNING] [09/08/2021 22:56:17] Word: durum already exits in wronglist
+[WARNING] [09/08/2021 22:56:17] Word: onaylamak already exits in wronglist
+[ERROR] [09/08/2021 22:56:17] Word: özellik could not be add to wronglist[SQLITE_BUSY]  The database file is locked (database is locked)
+[ERROR] [09/08/2021 22:56:17] Word: uygun fiyatlı - ekonomik (ödenebilir) could not be add to wronglist[SQLITE_BUSY]  The database file is locked (database is locked)
+[WARNING] [09/08/2021 22:56:17] Word: yorumlamak already exits in wronglist
+[ERROR] [09/08/2021 22:56:17] Word: tercih could not be add to wronglist[SQLITE_BUSY]  The database file is locked (database is locked)
+[WARNING] [09/08/2021 22:56:17] Word: güven already exits in wronglist
+[ERROR] [09/08/2021 22:56:17] Word: yapılandırma could not be add to wronglist[SQLITE_BUSY]  The database file is locked (database is locked)
+[ERROR] [09/08/2021 22:56:17] Word: a could not be add to wordlist[SQLITE_BUSY]  The database file is locked (database is locked)
+[INFO] [09/08/2021 22:57:41] Word: uygun fiyatlı - ekonomik (ödenebilir) successfully added to wronglist
+[INFO] [09/08/2021 23:05:45] Word: özellik successfully added to wronglist
+[WARNING] [09/08/2021 23:05:45] Word: güven already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: durum already exits in wronglist
+[INFO] [09/08/2021 23:05:45] Word: tercih successfully added to wronglist
+[INFO] [09/08/2021 23:05:45] Word: beklemek - ummak - sanmak successfully added to wronglist
+[WARNING] [09/08/2021 23:05:45] Word: güven already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: durum already exits in wronglist
+[INFO] [09/08/2021 23:05:45] Word: yapılandırma successfully added to wronglist
+[WARNING] [09/08/2021 23:05:45] Word: uygun fiyatlı - ekonomik (ödenebilir) already exits in wronglist
+[INFO] [09/08/2021 23:05:45] Word: sonsuzluk successfully added to wronglist
+[WARNING] [09/08/2021 23:05:45] Word: yorumlamak already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: yapılandırma already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: sonsuzluk already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: özellik already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: beklemek - ummak - sanmak already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: güven already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: tercih already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: durum already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: yorumlamak already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: onaylamak already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: uygun fiyatlı - ekonomik (ödenebilir) already exits in wronglist
+[INFO] [09/08/2021 23:05:45] Word: a successfully added to wordlist
+[INFO] [09/08/2021 23:05:45] Word: ab successfully added to wordlist
+[INFO] [09/08/2021 23:05:45] Word: a successfully removed.
+[INFO] [09/08/2021 23:05:45] Word: ab successfully removed.
+[INFO] [09/08/2021 23:05:45] Wrong list has been deleted.
+[INFO] [09/08/2021 23:05:45] Wrong list has been deleted.
+[INFO] [09/08/2021 23:05:45] Word: onaylamak successfully added to wronglist
+[INFO] [09/08/2021 23:05:45] Word: durum successfully added to wronglist
+[INFO] [09/08/2021 23:05:45] Word: sonsuzluk successfully added to wronglist
+[INFO] [09/08/2021 23:05:45] Word: beklemek - ummak - sanmak successfully added to wronglist
+[WARNING] [09/08/2021 23:05:45] Word: beklemek - ummak - sanmak already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: onaylamak already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: onaylamak already exits in wronglist
+[WARNING] [09/08/2021 23:05:45] Word: beklemek - ummak - sanmak already exits in wronglist
+[INFO] [09/08/2021 23:05:45] Word: uygun fiyatlı - ekonomik (ödenebilir) successfully added to wronglist
+[INFO] [09/08/2021 23:05:45] Word: özellik successfully added to wronglist
+[INFO] [09/08/2021 23:05:45] Word: yapılandırma successfully added to wronglist
+[INFO] [09/08/2021 23:05:45] Word: yorumlamak successfully added to wronglist
+[WARNING] [09/08/2021 23:05:45] Word: sonsuzluk already exits in wronglist
+[INFO] [09/08/2021 23:07:01] Word: a successfully added to wordlist
+[INFO] [09/08/2021 23:07:01] Word: a successfully removed.
+[INFO] [09/08/2021 23:07:01] Wrong list has been deleted.
+[INFO] [09/08/2021 23:07:01] Word: sonsuzluk successfully added to wronglist
+[INFO] [09/08/2021 23:07:01] Word: uygun fiyatlı - ekonomik (ödenebilir) successfully added to wronglist
+[INFO] [09/08/2021 23:07:01] Word: özellik successfully added to wronglist
+[INFO] [09/08/2021 23:07:01] Word: durum successfully added to wronglist
+[INFO] [09/08/2021 23:07:01] Word: beklemek - ummak - sanmak successfully added to wronglist
+[INFO] [09/08/2021 23:07:01] Word: onaylamak successfully added to wronglist
+[WARNING] [09/08/2021 23:07:01] Word: durum already exits in wronglist
+[INFO] [09/08/2021 23:07:01] Word: tercih successfully added to wronglist
+[WARNING] [09/08/2021 23:07:01] Word: uygun fiyatlı - ekonomik (ödenebilir) already exits in wronglist
+[INFO] [09/08/2021 23:07:01] Word: güven successfully added to wronglist
+[INFO] [09/08/2021 23:07:01] Word: yapılandırma successfully added to wronglist
+[WARNING] [09/08/2021 23:07:01] Word: sonsuzluk already exits in wronglist
+[INFO] [09/08/2021 23:07:01] Word: yorumlamak successfully added to wronglist
+[WARNING] [09/08/2021 23:07:01] Word: özellik already exits in wronglist
+[INFO] [09/08/2021 23:07:01] Wrong list has been deleted.

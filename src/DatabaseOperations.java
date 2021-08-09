@@ -93,8 +93,6 @@ public class DatabaseOperations {
 
     public boolean getWord(String turkishMean) {
         try {
-            if (connection.isClosed())
-                connectDatabase();
             preparedStatement = connection.prepareStatement(GET_WORD);
             preparedStatement.setString(1, turkishMean);
             resultSet = preparedStatement.executeQuery();
@@ -106,7 +104,6 @@ public class DatabaseOperations {
     }
 
     public boolean findWord(String turkishMean) {
-        connectDatabase();
         try {
             preparedStatement = connection.prepareStatement(FIND_WORD);
             preparedStatement.setString(1, turkishMean);
@@ -119,13 +116,10 @@ public class DatabaseOperations {
         } catch (SQLException sqlException) {
             Log.error("Word: " + turkishMean + " could not be find --> " + sqlException.getMessage());
             return false;
-        } finally {
-            closeDatabase(connection);
         }
     }
 
     public boolean removeWord(String turkishMean) {
-        connectDatabase();
         try {
             preparedStatement = connection.prepareStatement(DELETE_WORD);
             preparedStatement.setString(1, turkishMean);
@@ -135,13 +129,10 @@ public class DatabaseOperations {
         } catch (SQLException sqlException) {
             Log.error("Word: " + turkishMean + " couldn not be delete --> " + sqlException.getMessage());
             return false;
-        } finally {
-            closeDatabase(connection);
         }
     }
 
     public boolean resetWrongList() {
-        connectDatabase();
         try {
             preparedStatement = connection.prepareStatement(DELETE_WRONG_WORDS);
             preparedStatement.executeUpdate();
@@ -156,17 +147,21 @@ public class DatabaseOperations {
     }
 
     public void connectDatabase() {
+        System.out.println("connecting...");
         try {
             connection = DriverManager.getConnection(databaseUrl);
+            System.out.println("connected\n-------------------------");
         } catch (SQLException sqlException) {
             Log.error("Can not connect to database --> " + sqlException.getMessage());
         }
     }
 
     public void closeDatabase(Connection connection) {
+        System.out.println("closing...");
         try {
             if (!(connection.isClosed()))
                 connection.close();
+            System.out.println("closed\n---------------------");
         } catch (SQLException sqlException) {
             Log.error("Can not disconnect to database --> " + sqlException.getMessage());
         }

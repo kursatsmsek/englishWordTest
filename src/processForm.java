@@ -1,6 +1,7 @@
 import javax.swing.*;
 
 public class processForm extends JFrame {
+    private DatabaseOperations databaseOperations = new DatabaseOperations();
     private JPanel processForm;
     private JTextField inputOne;
     private JLabel explanation;
@@ -12,6 +13,9 @@ public class processForm extends JFrame {
     private JTextField inputThree;
     private JTextField inputFour;
     private JButton okeyButton;
+    private JLabel processTitle;
+    private JLabel informationText;
+    private ImageIcon imageIcon = new ImageIcon("./icon.png");
 
     public JButton getOkeyButton() {
         return okeyButton;
@@ -20,9 +24,6 @@ public class processForm extends JFrame {
     public void setOkeyButton(JButton okeyButton) {
         this.okeyButton = okeyButton;
     }
-
-    private JLabel processTitle;
-    private JLabel informationText;
 
     public JLabel getInformationText() {
         return informationText;
@@ -118,6 +119,7 @@ public class processForm extends JFrame {
         add(processForm);
         setBounds(460,200,500,400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setTitle("İşlem Menüsü");
+        setTitle("English Word Test");
+        setIconImage(imageIcon.getImage());
     }
 }

@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="English Word Test:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/English_Word_Test_jar</output-path>
+    <root id="archive" name="English Word Test.jar">
+      <element id="module-output" name="English Word Test" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/sqlite-jdbc-3.36.0.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

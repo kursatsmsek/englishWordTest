@@ -1,8 +1,7 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Question extends JFrame {
+    private DatabaseOperations databaseOperations = new DatabaseOperations();
     private JPanel QuestionForm;
     private JLabel turkishMean;
     private JLabel randomQuestionTitle;
@@ -11,6 +10,7 @@ public class Question extends JFrame {
     private JLabel remainderCounter;
     private JLabel correctCounter;
     private JLabel wrongCounter;
+    private ImageIcon imageIcon = new ImageIcon("./icon.png");
 
     public JLabel getRemainderCounter() {
         return remainderCounter;
@@ -72,6 +72,7 @@ public class Question extends JFrame {
         add(QuestionForm);
         setBounds(530,200,350,400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setTitle("Rastgele Soru");
+        setTitle("English Word Test");
+        setIconImage(imageIcon.getImage());
     }
 }

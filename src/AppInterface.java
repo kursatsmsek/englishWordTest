@@ -22,12 +22,14 @@ public class AppInterface extends JFrame {
     private JPanel homePage;
     private JButton lastWrong10;
     private JLabel upTitle;
+    private ImageIcon imageIcon = new ImageIcon("./icon.png");
 
     public AppInterface() {
         add(homePage);
         setBounds(330,200,700,400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setTitle("İngilizce Kelime Testi");
+        setTitle("English Word Test");
+        setIconImage(imageIcon.getImage());
 
         randomQuestion.addActionListener(e -> {
             AtomicInteger number = new AtomicInteger(1);

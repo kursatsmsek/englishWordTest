@@ -38,17 +38,17 @@ public class Transactions {
     }
 
     public void askQuestion(String type, AtomicInteger number) {
+        Question randomQuestion = new Question();
+        randomQuestion.setVisible(true);
         AtomicReference<Word> word = new AtomicReference<>();
         AtomicInteger correctCounter = new AtomicInteger();
         AtomicInteger wrongCounter = new AtomicInteger();
-        Question randomQuestion = new Question();
         ResultSet resultSet;
         ResultSet finalResultSet;
 
-        randomQuestion.setVisible(true);
-        randomQuestion.setRemainderCounter(changeLabelText(randomQuestion.getRemainderCounter(), "Kalan: " + number.get()));
-
         databaseOperations.connectDatabase();
+
+        randomQuestion.setRemainderCounter(changeLabelText(randomQuestion.getRemainderCounter(), "Kalan: " + number.get()));
 
         switch (type) {
             case "randomQuestion" -> {
@@ -98,7 +98,6 @@ public class Transactions {
                             randomQuestion.setTurkishMean(changeLabelText(randomQuestion.getTurkishMean(), "Sonuç"));
                             randomQuestion.getInput().setVisible(false);
                             randomQuestion.getOkeyButton().setVisible(false);
-                            databaseOperations.closeDatabase(databaseOperations.connection);
                         } else {
                             randomQuestion.setTurkishMean(changeLabelText(randomQuestion.getTurkishMean(), word.get().getTurkishMean()));
                         }
@@ -127,7 +126,12 @@ public class Transactions {
         processForm.setStatementFour(changeLabelText(processForm.getStatementFour(), "İngilizce 3. Anlamı"));
 
         processForm.getOkeyButton().addActionListener(a -> {
-            databaseOperations.connectDatabase();
+            try {
+                if (databaseOperations.connection.isClosed())
+                    databaseOperations.connectDatabase();
+            } catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+            }
             if (!(processForm.getInputOne().getText().equals("")) && processForm.getInputTwo().getText().equals("")) {
                 processForm.setInformationText(changeLabelText(processForm.getInformationText(), "İngilizce 1. anlamı giriniz."));
                 Log.warning("The first meaning must be add.");
@@ -161,8 +165,12 @@ public class Transactions {
         processForm.getInputFour().setVisible(false);
 
         processForm.getOkeyButton().addActionListener(e -> {
-            databaseOperations.connectDatabase();
-
+            try {
+                if (databaseOperations.connection.isClosed())
+                    databaseOperations.connectDatabase();
+            } catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+            }
             if (processForm.getInputOne().getText().equals("reset")) {
                 databaseOperations.resetWrongList();
                 processForm.setInformationText(changeLabelText(processForm.getInformationText(), "Yanlışlar başarıyla sıfırlandı."));
@@ -186,8 +194,12 @@ public class Transactions {
         processForm.getInputFour().setVisible(false);
 
         processForm.getOkeyButton().addActionListener(d -> {
-            databaseOperations.connectDatabase();
-
+            try {
+                if (databaseOperations.connection.isClosed())
+                    databaseOperations.connectDatabase();
+            } catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+            }
             String turkishMean = processForm.getInputOne().getText();
             if (databaseOperations.findWord(turkishMean)) {
                 if (databaseOperations.removeWord(turkishMean))

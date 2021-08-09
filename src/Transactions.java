@@ -189,7 +189,7 @@ public class Transactions {
         processForm processForm = new processForm();
         processForm.setVisible(true);
         processForm.setProcessTitle(changeLabelText(processForm.getProcessTitle(), "Kelime Silme"));
-        processForm.setExplanation(changeLabelText(processForm.getExplanation(), "Silinecek kelimeyi aratın, sonuçlardan seçerek silin."));
+        processForm.setExplanation(changeLabelText(processForm.getExplanation(), "Silinecek kelimeyi giriniz."));
         processForm.setStatementOne(changeLabelText(processForm.getStatementOne(), "Silinecek Kelime"));
         processForm.getStatementTwo().setVisible(false);
         processForm.getStatementThree().setVisible(false);
